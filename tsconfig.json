@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"strict": true,
+		"outFile": "main.js"
+	},
+	"compileOnSave": true
+}

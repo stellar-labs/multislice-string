@@ -1,0 +1,20 @@
+{
+	"name": "multislice-string",
+	"version": "0.1.0",
+	"description": "Slices a string using multiple \"start & end\" delimiters and take care of the gap cause by the slices.",
+	"main": "index.js",
+	"repository": "https://github.com/stellar-labs/multislice-string",
+	"author": "khalyomede",
+	"license": "MIT",
+	"scripts": {
+		"tsc": "tsc",
+		"build": "npm run tsc main.ts",
+		"mocha": "mocha",
+		"test": "npm run mocha test"
+	},
+	"devDependencies": {
+		"chai": "4.*",
+		"mocha": "5.*",
+		"typescript": "3.*"
+	}
+}
