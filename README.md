@@ -57,7 +57,7 @@ console.log(OUTPUT);
 ```
 
 ```
-heart, mind, soul
+"heart, mind, soul"
 ```
 
 ### Example 3: catching errors
