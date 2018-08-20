@@ -8,7 +8,7 @@
 	"license": "MIT",
 	"scripts": {
 		"tsc": "tsc",
-		"build": "npm run tsc main.ts",
+		"build": "npm run tsc index.ts",
 		"mocha": "mocha",
 		"test": "npm run mocha test"
 	},

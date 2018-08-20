@@ -1,5 +1,5 @@
 const expect = require("chai").expect;
-const multisliceString = require("../main.js");
+const multisliceString = require("../index.js");
 
 const ERR_PARAM_1_NOT_STR =
 	"multisliceString expects parameter 1 to be a string";
