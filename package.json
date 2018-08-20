@@ -1,6 +1,6 @@
 {
 	"name": "multislice-string",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Slices a string using multiple \"start & end\" delimiters and take care of the gap cause by the slices.",
 	"main": "index.js",
 	"repository": "https://github.com/stellar-labs/multislice-string",
