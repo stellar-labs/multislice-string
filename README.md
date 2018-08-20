@@ -63,7 +63,7 @@ heart, mind, soul
 ### Example 3: catching errors
 
 ```javascript
-const multisliceString = require("../index.js");
+const multisliceString = require("multislice-string");
 
 try {
 	multisliceString();
