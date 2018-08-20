@@ -16,7 +16,7 @@ npm install --save multislice-string@0.*
 ```
 
 ```bash
-yarn add --dev multislice-string@0.*
+yarn add multislice-string@0.*
 ```
 
 ## Example of use
@@ -29,6 +29,8 @@ yarn add --dev multislice-string@0.*
 const multisliceString = require("multislice-string");
 
 const OUTPUT = multisliceString("hello world", [{ start: 0, end: 5 }]);
+
+console.log(OUTPUT);
 ```
 
 ```
