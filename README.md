@@ -2,6 +2,7 @@
 
 Slice a string according to several slice operations instead of a single one.
 
+![NpmVersion](https://img.shields.io/npm/v/multislice-string.svg)
 ![NpmLicense](https://img.shields.io/npm/l/multislice-string.svg)
 
 ## Summary
