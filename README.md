@@ -48,9 +48,9 @@ console.log(OUTPUT);
 const multisliceString = require("multislice-string");
 const TEXT = `Put your heart, mind, and soul into even your smallest acts. This is the secret of success.`;
 const OUTPUT = multisliceString(TEXT, [
-	{ start: 9, end: 16 },
-	{ start: 16, end: 22 },
-	{ start: 26, end: 30 }
+  { start: 9, end: 16 },
+  { start: 16, end: 22 },
+  { start: 26, end: 30 }
 ]);
 
 console.log(OUTPUT);
@@ -63,12 +63,21 @@ console.log(OUTPUT);
 ### Example 3: catching errors
 
 ```javascript
-const multisliceString = require("multislice-string");
+const multisliceString = require("../index.js");
 
 try {
-	multisliceString();
+  multisliceString();
 } catch (exception) {
-	console.log(exception);
+  switch (exception.name) {
+    case "InvalidArgumentException":
+        console.log(exception);
+
+      break;
+    case "Exception":
+      console.log(exception);
+
+      break;
+  }
 }
 ```
 

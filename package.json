@@ -22,5 +22,8 @@
 		"chai": "4.*",
 		"mocha": "5.*",
 		"typescript": "3.*"
+	},
+	"dependencies": {
+		"node-exceptions": "3.*"
 	}
 }

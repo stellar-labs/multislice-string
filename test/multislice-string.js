@@ -1,5 +1,7 @@
 const expect = require("chai").expect;
 const multisliceString = require("../index.js");
+const NE = require("node-exceptions");
+const InvalidArgumentException = NE.InvalidArgumentException;
 
 const ERR_PARAM_1_NOT_STR =
 	"multisliceString expects parameter 1 to be a string";
@@ -37,10 +39,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_1_NOT_STR);
 	});
 
+	it("should throw an InvalidArgumentException if the first parameter is undefined instead of being a string", function() {
+		expect(function() {
+			multisliceString(undefined);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the first argument is null instead of being a string", function() {
 		expect(function() {
 			multisliceString(null);
 		}).to.throw(ERR_PARAM_1_NOT_STR);
+	});
+
+	it("should throw an InvalidArgumentException if the first argument is null instead of being a string", function() {
+		expect(function() {
+			multisliceString(null);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the first argument is a number instead of a string", function() {
@@ -49,10 +63,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_1_NOT_STR);
 	});
 
+	it("should throw an InvalidArgumentException if the first argument is a number instead of a string", function() {
+		expect(function() {
+			multisliceString(1);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the first argument is an array instead of a string", function() {
 		expect(function() {
 			multisliceString([]);
 		}).to.throw(ERR_PARAM_1_NOT_STR);
+	});
+
+	it("should throw an InvalidArgumentException if the first argument is an array instead of a string", function() {
+		expect(function() {
+			multisliceString([]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the first argument is an object instead of a string", function() {
@@ -61,10 +87,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_1_NOT_STR);
 	});
 
+	it("should throw an InvalidArgumentException if the first argument is an object instead of a string", function() {
+		expect(function() {
+			multisliceString({});
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the first argument is a date instead of a string", function() {
 		expect(function() {
 			multisliceString(new Date());
 		}).to.throw(ERR_PARAM_1_NOT_STR);
+	});
+
+	it("should throw an InvalidArgumentException if the first argument is a date instead of a string", function() {
+		expect(function() {
+			multisliceString(new Date());
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the first argument is a symbol instead of a string", function() {
@@ -73,10 +111,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_1_NOT_STR);
 	});
 
+	it("should throw an InvalidArgumentException if the first argument is a symbol instead of a string", function() {
+		expect(function() {
+			multisliceString(Symbol());
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the first argument is a regexp instead of a string", function() {
 		expect(function() {
 			multisliceString(new RegExp());
 		}).to.throw(ERR_PARAM_1_NOT_STR);
+	});
+
+	it("should throw an InvalidArgumentException if the first argument is a regexp instead of a string", function() {
+		expect(function() {
+			multisliceString(new RegExp());
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the second parameter is undefined instead of an array", function() {
@@ -85,10 +135,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
 	});
 
+	it("should throw an InvalidArgumentException if the second parameter is undefined instead of an array", function() {
+		expect(function() {
+			multisliceString("", undefined);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the second parameter is null instead of an array", function() {
 		expect(function() {
 			multisliceString("", null);
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
+	});
+
+	it("should throw an InvalidArgumentException if the second parameter is null instead of an array", function() {
+		expect(function() {
+			multisliceString("", null);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the second parameter is an object instead of an array", function() {
@@ -97,10 +159,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
 	});
 
+	it("should throw an InvalidArgumentException if the second parameter is an object instead of an array", function() {
+		expect(function() {
+			multisliceString("", {});
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the second parameter is a number instead of an array", function() {
 		expect(function() {
 			multisliceString("", 1);
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
+	});
+
+	it("should throw an InvalidArgumentException if the second parameter is a number instead of an array", function() {
+		expect(function() {
+			multisliceString("", 1);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the second parameter is a date instead of an array", function() {
@@ -109,10 +183,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
 	});
 
+	it("should throw an InvalidArgumentException if the second parameter is a date instead of an array", function() {
+		expect(function() {
+			multisliceString("", new Date());
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if the second parameter is a symbol instead of an array", function() {
 		expect(function() {
 			multisliceString("", Symbol());
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
+	});
+
+	it("should throw an InvalidArgumentException if the second parameter is a symbol instead of an array", function() {
+		expect(function() {
+			multisliceString("", Symbol());
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if the second parameter is a regexp instead of an array", function() {
@@ -121,10 +207,22 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY);
 	});
 
+	it("should throw an InvalidArgumentException if the second parameter is a regexp instead of an array", function() {
+		expect(function() {
+			multisliceString("", new RegExp());
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiters is undefined instead of an object", function() {
 		expect(function() {
 			multisliceString("", [undefined]);
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiters is undefined instead of an object", function() {
+		expect(function() {
+			multisliceString("", [undefined]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiters is null instead of an object", function() {
@@ -133,16 +231,34 @@ describe("multislice-string", function() {
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiters is null instead of an object", function() {
+		expect(function() {
+			multisliceString("", [null]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiters is a string instead of an object", function() {
 		expect(function() {
 			multisliceString("", [""]);
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiters is a string instead of an object", function() {
+		expect(function() {
+			multisliceString("", [""]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiters is a number instead of an object", function() {
 		expect(function() {
 			multisliceString("", [1]);
 		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiters is a number instead of an object", function() {
+		expect(function() {
+			multisliceString("", [1]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiters is an array instead of an object", function() {
@@ -189,12 +305,60 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an error if one of the delimiters is an array instead of an object", function() {
+		expect(function() {
+			multisliceString("", [[]]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an error if one of the delimiters is a date instead of an object", function() {
+		expect(function() {
+			multisliceString("", [new Date()]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an error if one of the delimiters is a symbol instead of an object", function() {
+		expect(function() {
+			multisliceString("", [Symbol()]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an error if one of the delimiters is a regexp instead of an object", function() {
+		expect(function() {
+			multisliceString("", [new RegExp()]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS);
+	});
+
+	it("should throw an error if one of the delimiters does not contain the key start", function() {
+		expect(function() {
+			multisliceString("", [{}]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_START);
+	});
+
+	it("should throw an error if one of the delimiters does not contain the key end", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0 }]);
+		}).to.throw(ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_END);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type undefined instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: undefined, end: 5 }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain the key start of type null instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: null, end: 5 }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_START_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type null instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: null, end: 5 }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain the key start of type string instead of number", function() {
@@ -205,12 +369,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type string instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: "0", end: 5 }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain the key start of type date instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: new Date(), end: 5 }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_START_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type date instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: new Date(), end: 5 }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain the key start of type symbol instead of number", function() {
@@ -221,12 +397,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type symbol instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: Symbol(), end: 5 }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain the key start of type array instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: [0], end: 5 }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_START_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type array instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: [0], end: 5 }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain the key start of type regexp instead of number", function() {
@@ -237,12 +425,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain the key start of type regexp instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: new RegExp(), end: 5 }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain a key end of type undefined instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: 0, end: undefined }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_END_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type undefined instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: undefined }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain a key end of type null instead of number", function() {
@@ -253,12 +453,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type null instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: null }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain a key end of type string instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: 0, end: "5" }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_END_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type string instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: "5" }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain a key end of type date instead of number", function() {
@@ -269,12 +481,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type date instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: new Date() }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain a key end of type symbol instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: 0, end: Symbol() }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_END_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type symbol instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: Symbol() }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should throw an error if one of the delimiter does contain a key end of type array instead of number", function() {
@@ -285,12 +509,24 @@ describe("multislice-string", function() {
 		);
 	});
 
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type array instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: [5] }]);
+		}).to.throw(InvalidArgumentException);
+	});
+
 	it("should throw an error if one of the delimiter does contain a key end of type regexp instead of number", function() {
 		expect(function() {
 			multisliceString("", [{ start: 0, end: new RegExp() }]);
 		}).to.throw(
 			ERR_PARAM_2_NOT_ARRAY_OF_OBJECTS_CONTAINING_END_AS_A_NUMBER
 		);
+	});
+
+	it("should throw an InvalidArgumentException if one of the delimiter does contain a key end of type regexp instead of number", function() {
+		expect(function() {
+			multisliceString("", [{ start: 0, end: new RegExp() }]);
+		}).to.throw(InvalidArgumentException);
 	});
 
 	it("should return the correct sentence when using one delimiter", function() {

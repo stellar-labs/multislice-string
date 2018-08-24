@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import { InvalidArgumentException } from "node-exceptions";
+
 /**
  * Return the sliced string from multiple slice parameters.
  * @example const sliced = multilineString('hello world', [{start: 0, end: 5}, {start: 6, end: 11}]);
@@ -38,7 +40,9 @@ const multisliceString = function(
 		content === null ||
 		content.constructor !== String
 	) {
-		throw new Error("multisliceString expects parameter 1 to be a string");
+		throw new InvalidArgumentException(
+			"multisliceString expects parameter 1 to be a string"
+		);
 	}
 
 	if (
@@ -46,7 +50,9 @@ const multisliceString = function(
 		delimiters === null ||
 		delimiters.constructor !== Array
 	) {
-		throw new Error("multisliceString expects parameter 2 to be an array");
+		throw new InvalidArgumentException(
+			"multisliceString expects parameter 2 to be an array"
+		);
 	}
 
 	let sliced_string = "";
@@ -57,19 +63,19 @@ const multisliceString = function(
 			delimiter === null ||
 			delimiter.constructor !== Object
 		) {
-			throw new Error(
+			throw new InvalidArgumentException(
 				"multisliceString expects parameter 2 to be an array of objects."
 			);
 		}
 
 		if ("start" in delimiter === false) {
-			throw new Error(
+			throw new InvalidArgumentException(
 				"multisliceString expects parameter 2 to be an array of objects, each containing a key 'start', but one of the objects did not contain this key."
 			);
 		}
 
 		if ("end" in delimiter === false) {
-			throw new Error(
+			throw new InvalidArgumentException(
 				"multisliceString expects parameter 2 to be an array of objects, each containing a key 'end', but one of the object did not contain this key."
 			);
 		}
@@ -79,7 +85,7 @@ const multisliceString = function(
 			delimiter["start"] === null ||
 			delimiter["start"].constructor !== Number
 		) {
-			throw new Error(
+			throw new InvalidArgumentException(
 				"multisliceString expects parameter 2 to be an array of objects, each containing a key 'start' of type Number, but at least of of the object contain a key 'start' with a different type."
 			);
 		}
@@ -89,7 +95,7 @@ const multisliceString = function(
 			delimiter["end"] === null ||
 			delimiter["end"].constructor !== Number
 		) {
-			throw new Error(
+			throw new InvalidArgumentException(
 				"multisliceString expects parameter 2 to be an array of objects, each containing a key 'end' of type Number, but at least of of the object contain a key 'end' with a different type."
 			);
 		}

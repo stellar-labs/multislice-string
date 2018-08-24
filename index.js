@@ -16,6 +16,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+var node_exceptions_1 = require("node-exceptions");
 /**
  * Return the sliced string from multiple slice parameters.
  * @example const sliced = multilineString('hello world', [{start: 0, end: 5}, {start: 6, end: 11}]);
@@ -29,12 +30,12 @@ var multisliceString = function (content, delimiters) {
     if (content === undefined ||
         content === null ||
         content.constructor !== String) {
-        throw new Error("multisliceString expects parameter 1 to be a string");
+        throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 1 to be a string");
     }
     if (delimiters === undefined ||
         delimiters === null ||
         delimiters.constructor !== Array) {
-        throw new Error("multisliceString expects parameter 2 to be an array");
+        throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array");
     }
     var sliced_string = "";
     for (var _i = 0, delimiters_1 = delimiters; _i < delimiters_1.length; _i++) {
@@ -42,23 +43,23 @@ var multisliceString = function (content, delimiters) {
         if (delimiter === undefined ||
             delimiter === null ||
             delimiter.constructor !== Object) {
-            throw new Error("multisliceString expects parameter 2 to be an array of objects.");
+            throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array of objects.");
         }
         if ("start" in delimiter === false) {
-            throw new Error("multisliceString expects parameter 2 to be an array of objects, each containing a key 'start', but one of the objects did not contain this key.");
+            throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array of objects, each containing a key 'start', but one of the objects did not contain this key.");
         }
         if ("end" in delimiter === false) {
-            throw new Error("multisliceString expects parameter 2 to be an array of objects, each containing a key 'end', but one of the object did not contain this key.");
+            throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array of objects, each containing a key 'end', but one of the object did not contain this key.");
         }
         if (delimiter["start"] === undefined ||
             delimiter["start"] === null ||
             delimiter["start"].constructor !== Number) {
-            throw new Error("multisliceString expects parameter 2 to be an array of objects, each containing a key 'start' of type Number, but at least of of the object contain a key 'start' with a different type.");
+            throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array of objects, each containing a key 'start' of type Number, but at least of of the object contain a key 'start' with a different type.");
         }
         if (delimiter["end"] === undefined ||
             delimiter["end"] === null ||
             delimiter["end"].constructor !== Number) {
-            throw new Error("multisliceString expects parameter 2 to be an array of objects, each containing a key 'end' of type Number, but at least of of the object contain a key 'end' with a different type.");
+            throw new node_exceptions_1.InvalidArgumentException("multisliceString expects parameter 2 to be an array of objects, each containing a key 'end' of type Number, but at least of of the object contain a key 'end' with a different type.");
         }
         var START = delimiter["start"];
         var END = delimiter["end"];
