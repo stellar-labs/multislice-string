@@ -552,4 +552,23 @@ describe("multislice-string", function() {
 			])
 		).to.be.equal(EXPECTED_OUTPUT);
 	});
+
+	it("should return the same string if using the exacts limits in the delimiter", function() {
+		const INPUT = "Act as if what you do makes a difference. It does.";
+		const EXPECTED_OUTPUT = INPUT;
+
+		expect(
+			multisliceString(INPUT, [{ start: 0, end: INPUT.length }])
+		).to.be.equal(EXPECTED_OUTPUT);
+	});
+
+	it("should return twice the same string if using the exacts limits in two delimiters", function() {
+		const INPUT = "Be kind whenever possible. It is always possible.";
+		const EXPECTED_OUTPUT = INPUT.repeat(2);
+		const SLICE = { start: 0, end: INPUT.length };
+
+		expect(multisliceString(INPUT, [SLICE, SLICE])).to.be.equal(
+			EXPECTED_OUTPUT
+		);
+	});
 });

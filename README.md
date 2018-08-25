@@ -1,4 +1,4 @@
-# multisliceString
+# multislice-string
 
 Slice a string according to several slice operations instead of a single one.
 
@@ -8,8 +8,9 @@ Slice a string according to several slice operations instead of a single one.
 
 ## Summary
 
--   [Installation](#installation)
--   [Example of use](#example-of-use)
+- [Installation](#installation)
+- [Example of use](#example-of-use)
+- [API](#api)
 
 ## Installation
 
@@ -25,9 +26,10 @@ yarn add multislice-string@0.*
 
 ## Example of use
 
--   [Example 1: simple slice](#example-1-simple-slice)
--   [Example 2: slicing multiple part of a string](#example-2-slicing-multiple-part-of-a-string)
--   [Example 3: catching errors](example-3-catching-errors)
+- [Example 1: simple slice](#example-1-simple-slice)
+- [Example 2: slicing multiple part of a string](#example-2-slicing-multiple-part-of-a-string)
+- [Example 3: catching errors](example-3-catching-errors)
+- [Example 4: slicing the full string](#example-4-slicing-the-full-string)
 
 ### Example 1: simple slice
 
@@ -95,7 +97,36 @@ Error: multisliceString expects parameter 1 to be a string
     at bootstrap_node.js:609:3
 ```
 
-`multisliceString` will throws an error in the following cases:
+### Example 4: slicing the full string
 
--   the first parameter is not a string
--   the second parameter is not an array of objects, containing 2 keys, `start` and `end`, both integers
+```javascript
+const multisliceString = require("../index");
+
+const text = "Did you know? NaN === NaN is equal to false.";
+const output = multisliceString(text, [{ start: 0, end: text.length }]);
+
+console.log(output);
+```
+
+```
+Did you know? NaN === NaN is equal to false.
+```
+
+## API
+
+- [multisliceString()](#multislicestring)
+
+### multisliceString()
+
+**prototype**
+
+```javascript
+const multisliceString = function(content: string, delimiters: Array<object>): string
+```
+
+**exceptions**
+
+`InvalidArgumentException`
+
+- If the first parameter is not a string
+- If the second parameter is not an array of objects, with each objects containing 2 keys, `start` and `end`, both integers
