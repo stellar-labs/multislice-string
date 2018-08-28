@@ -65,7 +65,7 @@ console.log(OUTPUT);
 ### Example 3: catching errors
 
 ```javascript
-const multisliceString = require("../index.js");
+const multisliceString = require("multislice-string");
 
 try {
   multisliceString();
@@ -84,7 +84,7 @@ try {
 ```
 
 ```
-Error: multisliceString expects parameter 1 to be a string
+InvalidArgumentException: multisliceString expects parameter 1 to be a string
     at multisliceString (C:\\stellar-labs\multislice-string\index.js:32:15)
     at Object.<anonymous> (C:\\stellar-labs\multislice-string\example\example-3.js:4:2)
     at Module._compile (module.js:652:30)
@@ -100,7 +100,7 @@ Error: multisliceString expects parameter 1 to be a string
 ### Example 4: slicing the full string
 
 ```javascript
-const multisliceString = require("../index");
+const multisliceString = require("multislice-string");
 
 const text = "Did you know? NaN === NaN is equal to false.";
 const output = multisliceString(text, [{ start: 0, end: text.length }]);
@@ -109,7 +109,7 @@ console.log(output);
 ```
 
 ```
-Did you know? NaN === NaN is equal to false.
+"Did you know? NaN === NaN is equal to false."
 ```
 
 ## API
